@@ -37,9 +37,9 @@ jobs:
     - name: Configure AWS credentials via OIDC
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+        role-to-assume: "arn:aws:iam::434605749312:role/GitHubOIDCRole"
         role-session-name: GitHubActions-Backend-${{ github.run_id }}
-        aws-region: ${{ secrets.AWS_REGION || 'ap-south-1' }}
+        aws-region: "ap-south-1"
     
     # Deploy to S3 bucket - directly sync the repository contents
     - name: Deploy to S3
